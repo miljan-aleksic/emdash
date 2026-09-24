@@ -1,5 +1,22 @@
 # @emdash-cms/sandbox-workerd
 
+## 0.8.0
+
+### Minor Changes
+
+- [#3333](https://github.com/emdash-cms/emdash/pull/3333) [`26f2076`](https://github.com/emdash-cms/emdash/commit/26f207686e203dd9f132618ac19ef19afefce020) Thanks [@swissky](https://github.com/swissky)! - Adds optional `cc` and `replyTo` fields to plugin email messages, including from sandboxed plugins:
+  
+  ```ts
+  await ctx.email.send({ to, cc: ["team@example.com"], replyTo: visitorEmail, subject, text });
+  ```
+  
+  `ctx.email.send()` throws when `cc` is not an array of strings or `replyTo` is not a string. `email:beforeSend`, `email:deliver`, and `email:afterSend` hooks receive both fields on `event.message`, and the development console provider prints them. The Cloudflare email provider delivers both, and a message's `replyTo` overrides the provider's configured `replyTo`. Custom `email:deliver` providers should pass `cc` and `replyTo` to their email service.
+
+### Patch Changes
+
+- Updated dependencies [[`f58b8f6`](https://github.com/emdash-cms/emdash/commit/f58b8f64d8f4cde2de9ce3eab0c55654f489ec33), [`5a9d822`](https://github.com/emdash-cms/emdash/commit/5a9d822fa68acb4a48b39ba01f85edf5c61d83d4), [`c99bcd3`](https://github.com/emdash-cms/emdash/commit/c99bcd3e11dd3f20bd0a4c240a8f73378c02de34), [`b8fae35`](https://github.com/emdash-cms/emdash/commit/b8fae350afd7dfcc6dcb668b48cd90791e49bd61), [`043960e`](https://github.com/emdash-cms/emdash/commit/043960e4dc040b40854c934cc3507b6b3e89b95a), [`f3f7cc3`](https://github.com/emdash-cms/emdash/commit/f3f7cc317348df36bc062be1529a9e80618510b3), [`5eaf095`](https://github.com/emdash-cms/emdash/commit/5eaf0952555d69eb6e618c65bd210fac8c7aaa6d), [`2e8e063`](https://github.com/emdash-cms/emdash/commit/2e8e0639dbd7ee6488337aff82c9a9c615a6050f), [`840a9d3`](https://github.com/emdash-cms/emdash/commit/840a9d363470fed2535665117587f353f8bff698), [`9a5d5b9`](https://github.com/emdash-cms/emdash/commit/9a5d5b97963110468f4719f97af6b52f280b723a), [`08e93b8`](https://github.com/emdash-cms/emdash/commit/08e93b8613e4b4e5fc91ab2cf4a4de3ea7c483ac), [`6f1b046`](https://github.com/emdash-cms/emdash/commit/6f1b046eca49184c8cc3e004375abcb43acb06ec), [`21ee693`](https://github.com/emdash-cms/emdash/commit/21ee6930fd0f86f449005bae2ab6ee089705cf02), [`ecef5a9`](https://github.com/emdash-cms/emdash/commit/ecef5a9afcc6d75fe92bf014c20e4d1bf6d75084), [`bf6b0a9`](https://github.com/emdash-cms/emdash/commit/bf6b0a9623076a5fbe2368602bca42317f96ad03), [`ad1465d`](https://github.com/emdash-cms/emdash/commit/ad1465d9d4a0e90972b846a4eeb04fb605e1fd1f), [`2db6c98`](https://github.com/emdash-cms/emdash/commit/2db6c989ddb76c3a1d8d99f101d3cbf8c9fbc716), [`14e9fdd`](https://github.com/emdash-cms/emdash/commit/14e9fddf13c933e4fc164caf466fe2bb27673dce), [`26f2076`](https://github.com/emdash-cms/emdash/commit/26f207686e203dd9f132618ac19ef19afefce020), [`6ebd4ef`](https://github.com/emdash-cms/emdash/commit/6ebd4efee94786fb1524a037b886fa829b0d2e68), [`e4b0d81`](https://github.com/emdash-cms/emdash/commit/e4b0d81497a21684f541eaeb32a49dcbb19fce2e), [`b804977`](https://github.com/emdash-cms/emdash/commit/b804977f39fffc84fff55bb5ba8cb01869e069f5), [`90ed23f`](https://github.com/emdash-cms/emdash/commit/90ed23fdd54a7e93cde0d52b3e352726e609a500), [`66f50dd`](https://github.com/emdash-cms/emdash/commit/66f50dda3f7d9b9579134555ef4e71f60453d0c1), [`3be2921`](https://github.com/emdash-cms/emdash/commit/3be2921875c2d60d9de644c292b5bee0272600d9), [`4a69cc6`](https://github.com/emdash-cms/emdash/commit/4a69cc66cbf50610a9b7e3648d4a61a1af17187a), [`86a33ee`](https://github.com/emdash-cms/emdash/commit/86a33eed10c742692cc9178962f0b7975e4bd23f)]:
+  - emdash@0.40.0
+
 ## 0.7.1
 
 ### Patch Changes

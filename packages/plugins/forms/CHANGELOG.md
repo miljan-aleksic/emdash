@@ -1,5 +1,11 @@
 # @emdash-cms/plugin-forms
 
+## 0.2.8
+
+### Patch Changes
+
+- [#3207](https://github.com/emdash-cms/emdash/pull/3207) [`15d032f`](https://github.com/emdash-cms/emdash/commit/15d032fc26c22b58b496bfba1dfb756e56790181) Thanks [@eisenbruch](https://github.com/eisenbruch)! - Updating one form setting no longer resets the others. A partial `forms/update` previously filled in schema defaults for every setting the caller left out, so changing a notification address also reset the form's confirmation message, submit label, digest options, retention and — most seriously — its spam protection, silently turning off Cloudflare Turnstile.
+
 ## 0.2.7
 
 ### Patch Changes
